@@ -15,6 +15,7 @@ amqp.connect('amqp://10.138.35.153:9098', function (error0, connection) {
         channel.assertQueue(queue, {
           durable: true
         });
+        channel.prefetch(1);
         // channel.sendToQueue(queue, Buffer.from(msg), {persistent: true}); // for persistent in RMQ Server
         channel.sendToQueue(queue, Buffer.from(msg), {
           persistent: true
